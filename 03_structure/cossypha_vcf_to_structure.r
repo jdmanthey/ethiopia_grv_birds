@@ -1,4 +1,4 @@
-# use a simplified vcf as input for creating a treemix file with snps at least minimum_dist apart
+# use a simplified vcf as input for creating a structure file with snps at least minimum_dist apart
 
 # column headers
 vcf_colnames <- c("POS", "REF", "ALT", "1", "2", "3", "4", "5")
