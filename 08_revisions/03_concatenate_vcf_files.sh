@@ -11,9 +11,9 @@ chr_array=$( head -n${SLURM_ARRAY_TASK_ID} vcf_cat.txt | tail -n1 )
 
 chr_array2=${chr_array%__}
 
-chr_start=${chr_array}a.g.vcf
+chr_start=${chr_array}__a.g.vcf
 
-chr_output=${chr_array%__}.g.vcf
+chr_output=${chr_array}.g.vcf
 
 grep "#" $chr_start > $chr_output
 
