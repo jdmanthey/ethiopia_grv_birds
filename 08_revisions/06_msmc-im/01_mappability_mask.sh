@@ -38,4 +38,9 @@ bwa samse -f ref_split.${k}.sam $reference ref_split.${k}.sai ref_split.${k}
 # generate final mask file from raw mask
 /home/jmanthey/seqbility-20091110/gen_mask ref_split.${k}.prelim_mask.fa > ref_split.${k}.final_mask.fa
 
+# move to reference location and save there (backed up there and not on scratch)
+cd /home/jmanthey/references/
+mv /lustre/scratch/jmanthey/mappability/ref_split.35.final_mask.fa GCF_000151805.1_Taeniopygia_guttata-3.2.4_genomic.mappability.fa
+
+
 
