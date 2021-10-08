@@ -42,5 +42,8 @@ bwa samse -f ref_split.${k}.sam $reference ref_split.${k}.sai ref_split.${k}
 cd /home/jmanthey/references/
 mv /lustre/scratch/jmanthey/mappability/ref_split.35.final_mask.fa GCF_000151805.1_Taeniopygia_guttata-3.2.4_genomic.mappability.fa
 
+# edit the python script used in the below command to have the correct input file (output of previous line) and rename output
+# then run
+./makeMappabilityMask.py
 
 
