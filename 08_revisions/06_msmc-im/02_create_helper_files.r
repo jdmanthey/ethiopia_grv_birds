@@ -4,6 +4,10 @@ options(scipen=999)
 genome_index <- read.table("GCF_000151805.1_Taeniopygia_guttata-3.2.4_genomic.fna.fai", stringsAsFactors=F)
 genome_index <- genome_index[genome_index[,2] >=1000000,]
 
+# remove sex chromosome
+genome_index2 <- genome_index[genome_index[,1] != "NC_011493.1",]
+write(genome_index2[,1], file="scaffold_list.txt", ncolumns=1)
+
 # read in list of all bam files with format {individualname}_final.bam
 bam_file_list <- read.table("ethiopia_bam_list.txt", stringsAsFactors=F)
 
@@ -21,4 +25,3 @@ for(a in 1:nrow(genome_index)) {
 
 write(individual_array, file="eth_msmc_individual_array.txt", ncolumns=1)
 write(scaffold_array, file="eth_msmc_scaffold_array.txt", ncolumns=1)
-
