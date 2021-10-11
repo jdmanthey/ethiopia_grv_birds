@@ -28,9 +28,10 @@ het=${het_array[$array_slot]}
 hap_east=${hap_order_east[$array_slot]}
 hap_west=${hap_order_west[$array_slot]}
 
+
 # run the program for the east
-/home/jmanthey/msmc2_linux64bit -I ${hap_east} -i 10 -t 18 -p 1*2+20*1+1*2+1*3 -o ${species}/east ${species}*multihetsep.txt
+/home/jmanthey/msmc2_linux64bit -I ${hap_east} -i 20 -t 18 -m ${het} -s -p 1*2+20*1+1*2+1*3 -o ${species}/east ${species}*multihetsep.txt
 
 # run the program for the west
-/home/jmanthey/msmc2_linux64bit -I ${hap_west} -i 10 -t 18 -p 1*2+20*1+1*2+1*3 -o ${species}/west ${species}*multihetsep.txt
+/home/jmanthey/msmc2_linux64bit -I ${hap_west} -i 20 -t 18 -m ${het} -s -p 1*2+20*1+1*2+1*3 -o ${species}/west ${species}*multihetsep.txt
 
