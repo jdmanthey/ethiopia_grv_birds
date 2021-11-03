@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --chdir=./
-#SBATCH --job-name=msmc_cri
+#SBATCH --job-name=msmc_crith
 #SBATCH --partition quanah
 #SBATCH --nodes=1 --ntasks=2
 #SBATCH --time=48:00:00
@@ -8,7 +8,7 @@
 #SBATCH --array=1-38
 
 # define individual array for input names (can be numbers of characters, depending on naming scheme)
-ind_array=(15 16 17 18 19)
+ind_array=(15 17)
 
 # read in scaffolds to use
 chr=$( head -n${SLURM_ARRAY_TASK_ID} scaffold_list.txt | tail -n1 )
@@ -20,7 +20,7 @@ prefix="crithagra"
 work_dir=/lustre/scratch/jmanthey/03_ethiopia_popgen/04_msmc/
 
 # define output directory (make sure it is already made)
-out_dir=/lustre/scratch/jmanthey/03_ethiopia_popgen/05_msmc_input/
+out_dir=/lustre/scratch/jmanthey/03_ethiopia_popgen/06_msmc_input/
 
 # list of vcf files for each individual
 vcf_list=( "${ind_array[@]/%/.${chr}.whatshap.vcf.gz}" )
@@ -29,8 +29,8 @@ vcf_list=$(printf " %s" "${vcf_list[@]}")
 echo $vcf_list
 
 # list of mask files for each individual
-mask_list=( "${ind_array[@]/%/.${chr}.samtools.bed.gz}" )
-mask_list=( "${mask_list[@]/#/--mask ${work_dir}ind_mask.}" )
+mask_list=( "${ind_array[@]/%/.${chr}.coverage.mask.gz}" )
+mask_list=( "${mask_list[@]/#/--mask ${work_dir}}" )
 mask_list=$(printf " %s" "${mask_list[@]}")
 echo $mask_list
 
