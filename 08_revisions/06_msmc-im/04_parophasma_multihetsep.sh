@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --chdir=./
-#SBATCH --job-name=msmc_turd
+#SBATCH --job-name=msmc_paro
 #SBATCH --partition quanah
 #SBATCH --nodes=1 --ntasks=2
 #SBATCH --time=48:00:00
@@ -8,13 +8,13 @@
 #SBATCH --array=1-38
 
 # define individual array for input names (can be numbers or characters, depending on naming scheme)
-ind_array=(20 21 23 24)
+ind_array=(12 13 14)
 
 # read in scaffolds to use
 chr=$( head -n${SLURM_ARRAY_TASK_ID} scaffold_list.txt | tail -n1 )
 
 # prefix of output
-prefix="turdus"
+prefix="parophasma"
 
 # define working directory
 work_dir=/lustre/scratch/jmanthey/03_ethiopia_popgen/04_msmc/
